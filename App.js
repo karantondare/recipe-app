@@ -2,9 +2,12 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AppLoading from "expo-app-loading";
-
-import MealsNavigator from "./components/MealsNavigator";
+import { enableScreens } from "react-native-screens";
 import * as Font from "expo-font";
+
+import MealsNavigator from "./src/components/MealsNavigator";
+
+enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({
