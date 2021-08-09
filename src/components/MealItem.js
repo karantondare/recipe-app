@@ -8,31 +8,27 @@ import {
 } from "react-native";
 import { DefaultText } from "./DefaultText";
 
-export const MealItem = ({
-  title,
-  onSelectMeal,
-  duration,
-  complexity,
-  affordability,
-  image,
-}) => {
+export const MealItem = (props) => {
   return (
     <View style={styles.mealItem}>
-      <TouchableOpacity onPress={onSelectMeal}>
+      <TouchableOpacity onPress={props.onSelectMeal}>
         <View>
           <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-            <ImageBackground source={{ uri: image }} style={styles.bgImage}>
+            <ImageBackground
+              source={{ uri: props.image }}
+              style={styles.bgImage}
+            >
               <View style={styles.titleContainer}>
                 <Text style={styles.title} numberOfLines={1}>
-                  {title}
+                  {props.title}
                 </Text>
               </View>
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <DefaultText>{duration}m</DefaultText>
-            <DefaultText>{complexity.toUpperCase()}</DefaultText>
-            <DefaultText>{affordability.toUpperCase()}</DefaultText>
+            <DefaultText>{props.duration}m</DefaultText>
+            <DefaultText>{props.complexity.toUpperCase()}</DefaultText>
+            <DefaultText>{props.affordability.toUpperCase()}</DefaultText>
           </View>
         </View>
       </TouchableOpacity>
